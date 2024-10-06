@@ -46,3 +46,13 @@ D:\c# new\UserRegistrationAPI\obj\Debug\net8.0\UserRegistrationAPI.genruntimecon
 D:\c# new\UserRegistrationAPI\obj\Debug\net8.0\ref\UserRegistrationAPI.dll
 D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\c# new\UserRegistrationAPI\obj\Debug\net8.0\UserRegistrationAPI.sourcelink.json
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\c# new\UserRegistrationAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

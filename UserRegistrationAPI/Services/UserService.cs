@@ -35,6 +35,11 @@ namespace UserRegistrationAPI.Services
     return user;
 }
 
+public async Task<ApplicationUser> GetUserByUsernameAsync(string username)
+        {
+            return await _users.Find(u => u.Username == username).FirstOrDefaultAsync();
+        }
+
         // Assign a new role to a user
         public async Task<bool> AddRoleToUserAsync(string userId, string role)
         {
