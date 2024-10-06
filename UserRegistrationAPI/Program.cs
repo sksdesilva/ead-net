@@ -27,6 +27,8 @@ builder.Services.AddSingleton<IMongoClient>(s =>
 // 4. Register application services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IVendorService, VendorService>();
+
 
 // 5. Configure JWT authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

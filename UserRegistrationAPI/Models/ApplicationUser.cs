@@ -8,7 +8,7 @@ namespace UserRegistrationAPI.Models
 {
     public class ApplicationUser
     {
-        private static readonly HashSet<string> AllowedRoles = new HashSet<string> { "Administrator", "Vendor", "CSR" };
+        private static readonly HashSet<string> AllowedRoles = new HashSet<string> { "Administrator", "Vendor", "CSR","Customer" };
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -33,7 +33,7 @@ namespace UserRegistrationAPI.Models
             {
                 if (value.Any(role => !AllowedRoles.Contains(role)))
                 {
-                    throw new ArgumentException("Roles can only be 'Administrator', 'Vendor', or 'CSR'.");
+                    throw new ArgumentException("Roles can only be 'Administrator', 'Vendor', 'Customer , 'or 'CSR'.");
                 }
                 roles = value;
             }

@@ -32,10 +32,10 @@ namespace UserRegistrationAPI.Controllers
                 return Unauthorized("Invalid credentials");
             }
 
-            if (!user.Roles.Contains("Vendor"))
-            {
-                return Forbid("You are not authorized to access this resource.");
-            }
+            // if (!user.Roles.Contains("Vendor"))
+            // {
+            //     return Forbid("You are not authorized to access this resource.");
+            // }
 
             var token = GenerateJwtToken(user);
             return Ok(new { token });

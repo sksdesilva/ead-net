@@ -33,7 +33,7 @@ namespace UserRegistrationAPI.Models
                 {
                     if (!IsValidRole(role))
                     {
-                        throw new ArgumentException($"Invalid role: {role}. Allowed roles are: Administrator, Vendor, and Customer Service Representative.");
+                        throw new ArgumentException($"Invalid role: {role}. Allowed roles are: Administrator, Vendor, Customer, and Customer Service Representative.");
                     }
                 }
                 _roles = value;
@@ -47,7 +47,8 @@ namespace UserRegistrationAPI.Models
             {
                 "Administrator",
                 "Vendor",
-                "Customer Service Representative"
+                "Customer Service Representative",
+                "Customer"
             };
 
             return allowedRoles.Contains(role);
