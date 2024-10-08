@@ -1,3 +1,5 @@
+// All vendor related crud opearations will be done in this compenet
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

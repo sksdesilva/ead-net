@@ -1,3 +1,5 @@
+// All user product crud functions will be done in this compenet
+
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using UserRegistrationAPI.Models;

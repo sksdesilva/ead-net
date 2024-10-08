@@ -1,3 +1,5 @@
+// All User realted CRUD opeartions will be done in this compenet
+
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using UserRegistrationAPI.Models;
