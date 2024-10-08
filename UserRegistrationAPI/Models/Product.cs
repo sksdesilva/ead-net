@@ -9,9 +9,12 @@ namespace UserRegistrationAPI.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }  // Make the Id field nullable
 
-        public string VendorId { get; set; }  // Owner of the product
+        public string VendorName { get; set; }  // Owner of the product
         public string Name { get; set; }
+
+        public string Category {get; set;} 
         public decimal Price { get; set; }
+        public int quntity { get; set; }
         public bool IsActive { get; set; }
     }
 }

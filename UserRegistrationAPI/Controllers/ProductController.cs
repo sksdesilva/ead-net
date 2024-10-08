@@ -25,12 +25,24 @@ namespace UserRegistrationAPI.Controllers
             return Ok("Product created successfully");
         }
 
-        [HttpPut("update/{id}")]
+        [HttpPatch("update/{id}")]
         [RoleAuthorize("Vendor")]
         public async Task<IActionResult> UpdateProduct(string id, Product product)
         {
             await _productService.UpdateProductAsync(id, product);
             return Ok("Product updated successfully");
+        }
+
+        [HttpGet("vendor/{vendorName}")]
+        [RoleAuthorize("Vendor")]
+        public async Task<IActionResult> GetProductsByVendor(string vendorName)
+        {
+            var products = await _productService.GetProductsByVendorAsync(vendorName);
+            if (products == null || products.Count == 0)
+            {
+                return NotFound("No products found for the specified vendor.");
+            }
+            return Ok(products);
         }
 
         [HttpDelete("delete/{id}")]

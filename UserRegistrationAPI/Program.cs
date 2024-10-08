@@ -10,8 +10,6 @@ using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container, including MongoDB settings and services.
-
 // 1. Configure MongoDB settings using the appsettings.json section "MongoDbSettings"
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
@@ -28,7 +26,6 @@ builder.Services.AddSingleton<IMongoClient>(s =>
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IVendorService, VendorService>();
-
 
 // 5. Configure JWT authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -72,10 +69,22 @@ builder.Services.AddScoped<RoleAuthorizeFilter>(sp =>
     return new RoleAuthorizeFilter("Role", userService, logger); // The role will be set in the attribute
 });
 
-// 7. Add authorization services
+// 7. Configure CORS to prevent CORS errors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
+// 8. Add authorization services
 builder.Services.AddAuthorization();
 
-// 8. Add controller services
+// 9. Add controller services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -83,11 +92,17 @@ builder.Services.AddSwaggerGen();
 // Build the app
 var app = builder.Build();
 
+app.UseCors("AllowAllOrigins");
+
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseCors("AllowSpecificOrigins");  // Enable the CORS middleware with the configured policy
 
 app.UseAuthentication();  // Ensure the authentication middleware is added
 app.UseAuthorization();

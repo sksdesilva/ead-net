@@ -40,5 +40,10 @@ namespace UserRegistrationAPI.Services
             var update = Builders<Product>.Update.Set(p => p.IsActive, false);
             await _products.UpdateOneAsync(p => p.Id == id, update);
         }
+
+         public async Task<List<Product>> GetProductsByVendorAsync(string vendorName)
+        {
+            return await _products.Find(product => product.VendorName == vendorName).ToListAsync();
+        }
     }
 }
