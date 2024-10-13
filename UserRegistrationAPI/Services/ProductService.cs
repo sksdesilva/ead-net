@@ -19,10 +19,19 @@ namespace UserRegistrationAPI.Services
             await _products.InsertOneAsync(product);
         }
 
-        public async Task UpdateProductAsync(string id, Product product)
-        {
-            await _products.ReplaceOneAsync(p => p.Id == id, product);
-        }
+       public async Task UpdateProductAsync(string id, Product updatedProduct)
+{
+    var filter = Builders<Product>.Filter.Eq(p => p.Id, id);  // Filter by the immutable _id field
+    var update = Builders<Product>.Update
+        .Set(p => p.Name, updatedProduct.Name)
+        .Set(p => p.Category, updatedProduct.Category)
+        .Set(p => p.Price, updatedProduct.Price)
+        .Set(p => p.quntity, updatedProduct.quntity)
+        .Set(p => p.VendorName, updatedProduct.VendorName)
+        .Set(p => p.IsActive, updatedProduct.IsActive);
+
+    await _products.UpdateOneAsync(filter, update);
+} 
 
         public async Task DeleteProductAsync(string id)
         {
@@ -45,5 +54,13 @@ namespace UserRegistrationAPI.Services
         {
             return await _products.Find(product => product.VendorName == vendorName).ToListAsync();
         }
+
+        public async Task<List<Product>> GetAllProductsAsync()
+{
+    return await _products.Find(_ => true).ToListAsync(); // Retrieve all products from the collection
+}
+
+
+        
     }
 }

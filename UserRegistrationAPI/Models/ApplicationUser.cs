@@ -20,8 +20,8 @@ namespace UserRegistrationAPI.Models
         [BsonElement("PasswordHash")]
         public string PasswordHash { get; set; } = null!;  // Hashed password stored
 
-        [BsonIgnore]
-        public string Password { get; set; } = null!;  // Plain password (not stored)
+       
+        public string? Password { get; set; }  // Plain password (not stored)
 
         private List<string> roles = new();
         

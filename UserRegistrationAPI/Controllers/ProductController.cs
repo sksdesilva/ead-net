@@ -63,6 +63,14 @@ namespace UserRegistrationAPI.Controllers
             return Ok("Product activated");
         }
 
+        [HttpGet("all-products")]
+        [RoleAuthorize("Administrator")]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            var products = await _productService.GetAllProductsAsync();  // Assuming _productService has a method to retrieve all products
+            return Ok(products);  // Returning the products as JSON
+        }
+
         [HttpPut("deactivate/{id}")]
         [RoleAuthorize("Administrator")]
         public async Task<IActionResult> DeactivateProduct(string id)

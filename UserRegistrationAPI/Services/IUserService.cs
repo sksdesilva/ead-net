@@ -8,6 +8,8 @@ namespace UserRegistrationAPI.Services
         Task<bool> AddRoleToUserAsync(string userId, string role);
         Task<ApplicationUser> GetUserByIdAsync(string userId);
 
+        Task<List<ApplicationUser>> GetAllUsersAsync();
+
          Task<ApplicationUser> GetUserByUsernameAsync(string username);
     }
 }

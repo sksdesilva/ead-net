@@ -10,6 +10,8 @@ namespace UserRegistrationAPI.Services
         Task ActivateProductAsync(string id);
         Task DeactivateProductAsync(string id);
 
+        Task<List<Product>> GetAllProductsAsync();
+
         Task<List<Product>> GetProductsByVendorAsync(string vendorName);
     }
 }

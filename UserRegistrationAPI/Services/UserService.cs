@@ -54,6 +54,12 @@ public async Task<ApplicationUser> GetUserByUsernameAsync(string username)
             return await _users.Find(u => u.Id == userId).FirstOrDefaultAsync();
         }
 
+        public async Task<List<ApplicationUser>> GetAllUsersAsync()
+        {
+            return await _users.Find(u => true).ToListAsync(); // Returns all users
+        }
+
+
         // Password hashing using BCrypt
         private string HashPassword(string password)
         {

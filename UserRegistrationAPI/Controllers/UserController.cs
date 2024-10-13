@@ -24,6 +24,14 @@ public class UserController : ControllerBase
         return Ok(newUser);
     }
 
+
+    [HttpGet("users")]
+     public async Task<IActionResult> GetAllUsers()
+    {
+        var users = await _userService.GetAllUsersAsync();
+        return Ok(users);
+    }
+
     // Assign a role to a user
     [HttpPost("assign-role")]
     public async Task<IActionResult> AssignRole(string userId, string role)
